@@ -2,7 +2,7 @@
 
 This project implements a neuroevolutionary approach to game AI, where neural networks evolve through genetic algorithms to master classic video games. The system maintains a population of neural networks, each representing a different playing strategy, and uses evolutionary operators (selection, crossover, and mutation) to iteratively improve their performance. Through this process, the networks learn optimal game-playing behaviors by evolving their weights and architecture.
 
-## 🎮 Features
+##  Features
 
 - **Neural Network Architecture**
   - Customizable network topology
@@ -29,7 +29,7 @@ This project implements a neuroevolutionary approach to game AI, where neural ne
   - Model checkpointing
   - Performance metrics logging
 
-## 🛠️ Technical Stack
+##  Tech Stack
 
 - Python 3.9+
 - TensorFlow 2.13.0
@@ -38,7 +38,7 @@ This project implements a neuroevolutionary approach to game AI, where neural ne
 - OpenCV 4.8.0
 - NEAT-Python 0.92
 
-## 📦 Installation
+## Installation
 
 1. Clone the repository:
 ```bash
@@ -99,7 +99,7 @@ HIDDEN_LAYERS = [64, 32]
 OUTPUT_SIZE = 8
 ```
 
-## 🔧 Architecture
+## Architecture
 
 ### Neural Network (`neural_network.py`)
 - Implements feed-forward neural networks
@@ -124,7 +124,7 @@ OUTPUT_SIZE = 8
 - Video recording
 - Generation statistics
 
-## 📊 Performance Metrics
+## Performance Metrics
 
 - Average fitness per generation
 - Best fitness achieved
@@ -132,14 +132,14 @@ OUTPUT_SIZE = 8
 - Training convergence rate
 - Episode completion rate
 
-## 🎯 Supported Games
+##  Supported Games
 
 - Space Invaders
 - Donkey Kong
 - Mario Bros
 - Other gym-retro compatible games
 
-## 🔍 Implementation Details
+##  Implementation Details
 
 ### State Preprocessing
 ```python
@@ -174,13 +174,13 @@ def mutate(self, mutation_rate):
     self.set_weights(weights)
 ```
 
-## 📈 Results
+##  Results
 
 The AI typically achieves:
 - Space Invaders: 1000+ points
 - Donkey Kong: Level 2 completion
 - Mario Bros: World 1-1 completion
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
