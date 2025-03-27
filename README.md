@@ -63,7 +63,7 @@ pip install gym-retro==0.8.0 neat-python==0.92
 python -m retro.import /path/to/your/roms
 ```
 
-## 🎯 Usage
+##  Usage
 
 ### Basic Training
 
