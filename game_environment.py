@@ -4,18 +4,41 @@ import cv2
 from config import GAME_NAME, MAX_STEPS
 
 class GameEnvironment:
+    """
+    Wrapper for the game environment that handles:
+    - Game state preprocessing
+    - Action execution
+    - Reward calculation
+    - Episode recording
+    """
+    
     def __init__(self):
+        """
+        Initialize the game environment.
+        We're using gym-retro which provides access to classic games.
+        """
         self.env = gym.make(GAME_NAME, render_mode='rgb_array')
         self.action_space = self.env.action_space
         self.observation_space = self.env.observation_space
     
     def preprocess_state(self, state):
+        """
+        Convert the raw game screen into a format our neural network can understand.
+        - Resize to 84x84 pixels (standard size for many RL papers)
+        - Normalize pixel values to [0,1] range
+        - Flatten the image for the neural network
+        """
         # Resize and normalize the state
         state = cv2.resize(state, (84, 84))
         state = state / 255.0
         return state.flatten()
     
     def evaluate_individual(self, neural_network, num_episodes=1):
+        """
+        Test how well a neural network plays the game.
+        Returns the average reward across episodes.
+        Higher reward = better performance.
+        """
         total_reward = 0
         
         for episode in range(num_episodes):
@@ -39,6 +62,10 @@ class GameEnvironment:
         return total_reward / num_episodes
     
     def record_episode(self, neural_network, output_path):
+        """
+        Record a video of the neural network playing the game.
+        Useful for visualizing how well it's doing!
+        """
         state, _ = self.env.reset()
         done = False
         frames = []
@@ -60,4 +87,8 @@ class GameEnvironment:
         out.release()
     
     def close(self):
+        """
+        Clean up resources when we're done.
+        Always call this when you're finished with the environment!
+        """
         self.env.close() 
